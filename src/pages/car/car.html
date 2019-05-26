@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>购物车</title>
+		<link rel="stylesheet" type="text/css" href="../../styles/pages/car/car.css" />
+	</head>
+	<body>
+		<!-- 购物车导航部分 -->
+		<div class="nav-con">
+			<div class="car-nav w1240">
+				<a class="logo" href="#">
+					<img class="fl" src="../../img/logo2.png" alt="">
+				</a>
+				<ul class="nav-left fl">
+					<li><a class="active" href="#">购物车&nbsp;&nbsp;&nbsp;></a></li>
+					<li><a href="#">确认订单&nbsp;&nbsp;&nbsp;>&nbsp;&nbsp;</a></li>
+					<li><a href="#">在线支付&nbsp;&nbsp;&nbsp;>&nbsp;&nbsp;</a></li>
+					<li><a href="#">完成</a></li>
+				</ul>
+				<ul class="nav-right fr">
+					<li><a href="#">我的订单</a></li>
+					<li><a href="http://localhost:9999/pages/login/login.html">登录</a></li>
+					<li><a href="http://localhost:9999/pages/register/register.html">注册</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="car-box w1240">
+			<!-- 购物车头 -->
+			<div class="t-head">
+				<table>
+					<tr>
+						<td class="car-select">
+							<div class="checkbox unchecked"></div>
+							<span>全选</span>
+						</td>
+
+						<td class="car-price">单价(元)</td>
+						<td class="car-number">数量</td>
+						<td class="car-total">小计(元)</td>
+						<td class="car-edit" id="J-cartHearCtrl">编辑</td>
+					</tr>
+				</table>
+			</div>
+
+			<div class="t-body">
+				<div class="con-head">
+					<div class="car-select">
+						<div class="checkbox unchecked"></div>
+						<span>魅族</span>
+						<!-- <span class="cart-free">已免运费</span> -->
+						<span class="cart-shipping-price">再买80.00,即可免运费</span>
+						<span class="fee-shipping-skip">立即凑单 &gt;</span>
+					</div>
+				</div>
+				<!-- 商品列表 -->
+				<div class="goods-car">
+					<!-- 单个商品模板 -->
+				</div>
+				<!-- 商品数据 -->
+				<script type="text/html" id="goodsMsg">
+					<ul class="produce-list">
+						<!-- 架构阿 -->
+						<div class="goods-head">
+							<div class="buy">
+								<span>加购价</span>
+							</div>
+							<span>另加19元起，即可换购超值商品</span>
+							<span class="fee-shipping-skip">立即凑单 &gt;</span>
+						</div>
+						<!-- 选中按钮 -->
+						<li class="phone-msg fl">
+							<!-- <input type="checkbox"> -->
+							<div class="checkbox unchecked">
+					
+							</div>
+							<img src="<%=data.imgUrl%>" alt="">
+							<p class="goods-name"><%=data.name%></p>
+							<span class="goods-desc">4GB+64GB</span>
+					
+						</li>
+						<li class="single-price fl">$<%=data.pir%>.00</li>
+						<!-- 加减按钮 -->
+						<li class="ph-count fl">
+							<div class="btn-num clear">
+								<button class="pnum-add" value="+">-</button>
+								<input type="text" value="<%=data.num%>" class="pnum-inp">
+								<button class="pnum-red" value="-">+</button>
+							</div>
+						</li>
+						<!-- 小计 -->
+						<li class="sum-price fl"><%=data.pir*data.num%>.00</li>
+						<li class="fl">--</li>
+					</ul>
+					
+				</script>
+			</div>
+		</div>
+
+		<div class="cart-footer w1240" id="cartFooter">
+			<div class="car-select" id="car-select">
+				<div class="checkbox unchecked"></div>
+				<span id="all_sel">全选</span>
+				<span>删除选中的产品</span>
+				<p>共<span>1</span>件商品，已选中<em>0</em>件</p>
+			</div>
+		</div>
+
+	</body>
+	<script src="../../static/scripts/require.js" data-main="car.js" type="text/javascript" charset="utf-8"></script>
+</html>

@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="../../styles/pages/goods/goods.css" />
+	</head>
+	<body>
+		<div class="nav-continer">
+			<!-- 顶部导航栏 -->
+			<div id="_bac" class="bac">
+				<div class="nav-top">
+					<img class="fl img-logo" src="../../img/logo2.png" alt="魅族">
+					<!-- 导航栏 -->
+					<div class="nav-list fl">
+
+					</div>
+					<!-- 搜索框 -->
+					<input class="search fl" type="text" />
+					<!-- 购物车和个人中心 -->
+					<a class="user-car fr" href="#">
+						<span>0</span>
+					</a>
+					<a class="user-center fr" href="#">
+					</a>
+				</div>
+			</div>
+			
+			<ul class="down-person visiblility-hidden">
+				<li>
+					<a href="http://localhost:9999/pages/login/login.html">立即登录</a>
+				</li>
+				<li>
+					<a href="http://localhost:9999/pages/register/register.html">立即注册</a>
+				</li>
+				<li>
+					<a href="#">我的订单</a>
+				</li>
+				<li>
+					<a href="#">M码通道</a>
+				</li>
+			</ul>
+
+			<!-- 划入显示商品列表 -->
+			<div class="nav-hover-list w1240">
+				<div class="nav-product1  w1240">
+				</div>
+
+			</div>
+		</div>
+		<div class="fix-bac">
+			<div class="down-nav w1240">
+				<span>魅族 16s</span>
+				<ul>
+					<li>
+						<a href="http://localhost:9999/pages/home/home.html">首页</a>
+					</li>
+					<li>
+						<a href="#">概述</a>
+					</li>
+					<li>
+						<a href="#">性能</a>
+					</li>
+					<li>
+						<a href="#">相机</a>
+					</li>
+					<li>
+						<a href="#">参数</a>
+					</li>
+					<li>
+						<a href="#">常见问题</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<!-- 胖胖写的 -->
+		<div class="container clear">
+			<script type="text/html" id="goodMsg">
+				
+			<!-- 左边大图 -->
+			<div class="preview" id="preview">
+				<div class="preview-booth">
+					<a href="#" id="J_imgBooth">
+						<img src="<%=data[0].imgUrl%>" height="560"
+						 width="560" alt="">
+					</a>
+				</div>
+				<!-- 大图下面的小图 -->
+				<ul class="preview-thumb clear" id="J_previewThumb">
+					<% for(let i = 0;i < 4 ;i++){ %>
+						<li class="current">
+							<a data-mtype="click_store_de_tp_1" data-bh="click_store_de_tp_1" href="#">
+								<img src="<%=data[0].imgUrl%>" width="80"
+								 height="80">
+							</a>
+						</li>
+					<%}%>
+				</ul>
+				<!-- 收藏和对比 -->
+				<div class="preview-action">
+					<a class="vm-favorite" id="J_favorite" href="#">
+						<i class="iconfont icon-favorite"></i>收藏
+					</a>
+					<a class="compare-btn-list" id="J_compare">
+						<i class="iconfont icon-duibi compare-duibi"></i>
+						<span>对比</span>
+					</a>
+				</div>
+			</div>
+		
+			<!-- 右边介绍 -->
+			<div class="prointro">
+				<!-- 手机名称区 -->
+				<div class="phone-title">
+					<h1><%=data[0].name%></h1>
+					<p class="mod-info active"><%=data[0].title%></p>
+				</div>
+		
+				<!--手机价格区 -->
+				<div class="property-sell">
+					<!-- 价格 -->
+					<div class="pro-pir clear">
+						<div class="mod-price">
+							<small></small>
+							<span id="J_price" class="vm-money"><%=data[0].pir%>.00</span>
+						</div>
+					</div>
+					<!-- 优惠券 -->
+					<dl class="property-sell-coupon clear" style="">
+						<dt class="vm-entry">
+							<span>优惠券</span>
+						</dt>
+						<dd>
+							<p id="J_promoInner">
+								<span class="vm-tag">满1798减150</span></p>
+							<a class="vm-more" href="#">更多&gt;</a>
+						</dd>
+					</dl>
+					<!-- 加购价 -->
+					<dl class="property-sell-morebuy clear" id="J_prodMorebuy" style="">
+						<dt class="vm-entry">
+							<span>加价购</span>
+						</dt>
+						<dd>
+							<span>
+								另加<em id="J_moreBuyStart">15</em>元起，即可换购超值商品
+							</span>
+							<a class="vm-more" data-mtype="store_de_coupon_more" data-bh="click_store_de_coupon_more" id="J_moreBuyEnter"
+							 href="#">立即加购 &gt;</a>
+						</dd>
+					</dl>
+				</div>
+		
+				<!-- 支持和配送服务 -->
+				<div class="property-service">
+					<!-- 支持 -->
+					<dl class="property-service-item clear">
+						<dt class="vm-metatit">支<span class="s-space"></span><span class="s-space"></span>持
+						</dt>
+						<dd class="mod-bd" id="J_prodService">
+							<span><i class="iconfont-detail icon-success"></i>花呗分期</span>
+							<span><i class="iconfont-detail icon-success"></i>顺丰发货</span>
+							<span><i class="iconfont-detail icon-success"></i>7天无理由退货</span>
+						</dd>
+					</dl>
+					<!-- 配送服务 -->
+					<dl class="property-service-suda clear" id="J_delivery">
+						<dt class="vm-metatit">配送服务</dt>
+						<dd class="mod-site clear">
+							<!-- 市区选择 -->
+							<div id="site-selector" class="site-selector">
+								<div class="text">北京 北京市 <i class="iconfont-detail icon-yijianfankuixialajiantou"></i></div>
+							</div>
+						</dd>
+					</dl>
+					<!--商城客服-->
+					<div class="property-service-provider clear">
+						<span id="J_installmentInfo"></span>
+						本商品由 魅族 负责发货并提供售后服务
+						<a class="vm-kefu" style="" data-mtype="store_de_kefu" data-bh="click_store_de_kefu" id="J_kefu" href="javascript:;"><i
+							 class="iconfont-detail icon-kefu"></i><span>商城客服</span></a>
+					</div>
+				</div>
+		
+				<!-- 型号 -->
+				<div class="property-sibling">
+					<dl data-property="型号" class="property-sibling-item">
+						<dt class="vm-metatit">
+							型<span class="s-space"></span><span class="s-space"></span>号
+						</dt>
+						<dd class="clear">
+							<a href="javascript:;" data-itemid="12393" class="prop selected" data-mtype="store_de_sib_1" data-bh="click_store_de_sib_1">魅族
+								16 X</a>
+							<a href="//detail.meizu.com/item/meizu16s.html?click=store_de_sib_2" data-itemid="12494" class="prop" data-mtype="store_de_sib_2"
+							 data-bh="click_store_de_sib_2">魅族 16s</a>
+							<a href="//detail.meizu.com/item/meizunote9.html?click=store_de_sib_3" data-itemid="12480" class="prop"
+							 data-mtype="store_de_sib_3" data-bh="click_store_de_sib_3">魅族 Note9</a>
+							<a href="//detail.meizu.com/item/meizu16th.html?click=store_de_sib_4" data-itemid="12213" class="prop"
+							 data-mtype="store_de_sib_4" data-bh="click_store_de_sib_4">魅族 16th</a>
+							<a href="//detail.meizu.com/item/meizu16thplus.html?click=store_de_sib_5" data-itemid="12214" class="prop"
+							 data-mtype="store_de_sib_5" data-bh="click_store_de_sib_5">魅族 16th Plus</a>
+							<a href="//detail.meizu.com/item/meizux8.html?click=store_de_sib_6" data-itemid="12426" class="prop" data-mtype="store_de_sib_6"
+							 data-bh="click_store_de_sib_6">魅族 X8</a>
+						</dd>
+					</dl>
+				</div>
+		
+				<!--手机具体信息 -->
+				<div class="property-set">
+					<!-- 网络类型 -->
+					<dl class="property-set-sale" data-property="网络类型">
+						<dt class="vm-metatit">网络类型</dt>
+						<dd class="clear">
+							<a data-value="14:18238" data-mtype="store_de_sp_1_1" data-bh="click_store_de_sp_1_1" href="#" title="全网通公开版"
+							 class="selected">
+								<span>全网通公开版</span>
+							</a>
+						</dd>
+					</dl>
+					<!-- 颜色分类 -->
+					<dl class="property-set-sale" data-property="颜色分类">
+						<dt class="vm-metatit">颜色分类</dt>
+						<dd class="clear">
+							<a data-value="3:27065" class="vm-sale-img" data-mtype="store_de_sp_2_1" data-bh="click_store_de_sp_2_1" href="#"
+							 title="汝窑白">
+								<img src="//openfile.meizu.com/group1/M00/06/BC/Cgbj0FvINLWACd0AAAh2dGv5_R0516.png80x80.png" width="32" height="32">
+								<span>汝窑白</span>
+							</a>
+							<a data-value="3:32683" class="vm-sale-img" data-mtype="store_de_sp_2_2" data-bh="click_store_de_sp_2_2" href="#"
+							 title="晨曦金">
+								<img src="//openfile.meizu.com/group1/M00/06/BC/Cgbj0FvINMCAYHwVAA9tzd_slxY751.png80x80.png" width="32" height="32">
+								<span>晨曦金</span>
+							</a>
+							<a data-value="3:32684" class="vm-sale-img selected" data-mtype="store_de_sp_2_3" data-bh="click_store_de_sp_2_3"
+							 href="#" title="砚墨黑">
+								<img src="//openfile.meizu.com/group1/M00/06/CC/Cgbj0VvINL-AGM20AAw4GirVtYA698.png80x80.png" width="32" height="32">
+								<span>砚墨黑</span>
+							</a>
+							<a data-value="3:33024" class="vm-sale-img" data-mtype="store_de_sp_2_4" data-bh="click_store_de_sp_2_4" href="#"
+							 title="云山蓝">
+								<img src="//openfile.meizu.com/group1/M00/06/C2/Cgbj0FvQPgeAB8oRAANr82CwrrQ070.png80x80.png" width="32" height="32">
+								<span>云山蓝</span>
+							</a>
+							<a data-value="3:33025" class="vm-sale-img" data-mtype="store_de_sp_2_5" data-bh="click_store_de_sp_2_5" href="#"
+							 title="烟晶紫">
+								<img src="//openfile.meizu.com/group1/M00/06/D2/Cgbj0VvQPgqACwWfAAM1qdVP9Cw937.png80x80.png" width="32" height="32">
+								<span>烟晶紫</span>
+							</a>
+						</dd>
+					</dl>
+					<!-- 内存容量 -->
+					<dl class="property-set-sale" data-property="内存容量">
+						<dt class="vm-metatit">内存容量</dt>
+						<dd class="clear">
+							<a data-value="13:23963" data-mtype="store_de_sp_3_1" data-bh="click_store_de_sp_3_1" href="#" title="6+64GB"
+							 class="selected">
+								<span>6+64GB</span>
+							</a>
+							<a data-value="13:23964" data-mtype="store_de_sp_3_2" data-bh="click_store_de_sp_3_2" href="#" title="6+128GB">
+								<span>6+128GB</span>
+							</a>
+						</dd>
+					</dl>
+					<!-- 套餐 -->
+					<dl class="property-set-package" id="propertyPackage" data-property="套餐">
+						<dt class="vm-metatit">选择套餐</dt>
+						<dd class="package">
+							<div class="package-tab clear" id="J_packageTab" data-property="套餐">
+								<a data-value="0" data-mtype="click_store_de_tc_1" data-bh="click_store_de_tc_1" href="#" title="官方标配" class="selected single">
+									<p class="vm-text ">
+										官方标配
+									</p>
+								</a>
+		
+								<a data-value="303" data-mtype="click_store_de_tc_2" data-bh="click_store_de_tc_2" href="#" title="EP21套餐">
+									<p class="vm-text ">
+										EP21套餐
+										<span class="vm-text-profits">省<em>30</em>元</span>
+									</p>
+								</a>
+								<a data-value="278" data-mtype="click_store_de_tc_3" data-bh="click_store_de_tc_3" href="#" title="碎屏保套餐">
+									<p class="vm-text ">
+										碎屏保套餐
+									</p>
+								</a>
+								<a data-value="304" data-mtype="click_store_de_tc_4" data-bh="click_store_de_tc_4" href="#" title="EP52套餐">
+									<p class="vm-text ">
+										EP52套餐
+										<span class="vm-text-profits">省<em>120</em>元</span>
+									</p>
+								</a>
+							</div>
+							<div class="package-content hide" id="J_packageContent" style="display: none;">
+								<span class="s-triangle" id="J_triangle" style="display: block; left: 88px;"></span>
+								<div class="mod-bd" id="J_packageBody"></div>
+							</div>
+						</dd>
+					</dl>
+				</div>
+		
+				<!-- 数量和立即购买按钮 -->
+				<div class="property-buy">
+					<p class="vm-message" id="J_message"></p>
+					<dl class="property-buy-quantity">
+						<dt class="vm-metatit">数<span class="s-space"></span><span class="s-space"></span>量
+						</dt>
+						<dd class="clear">
+							<div class="mod-control">
+								<a title="减少" href="javascript:;" class="vm-minus disabled">-</a>
+								<input type="text" value="1" id="J_quantity" data-max="5">
+								<a title="增加" href="javascript:;" class="vm-plus">+</a>
+							</div>
+						</dd>
+					</dl>
+					<div class="property-buy-action">
+		
+						<a  id="J_btnBuy" class="btn btn-primary btn-lg mr20" style="display: inline-block;">立即购买</a>
+						<a  href="#" id="J_btnAddCart" class="btn btn-empty btn-lg hide" style="display: inline-block;"><i></i>加入购物车</a>
+						
+						<span class="vm-service" id="J_panicBuyingWrap"></span>
+					</div>
+				</div>
+			</div>
+			
+			</script>
+		
+		</div>
+		
+		<div class="proImg clear">
+			<div class="simple-hd ">
+				商品详情
+			</div>
+			<img class="lazy" data-original="//openfile.meizu.com/group1/M00/07/3E/Cgbj0VzkxfmAFjb5AAn9z7Yqn7M365.jpg" width="1240" alt="" src="//openfile.meizu.com/group1/M00/07/3E/Cgbj0VzkxfmAFjb5AAn9z7Yqn7M365.jpg" style="display: inline;">
+		</div>
+		
+	</body>
+	
+	<script src="../../static/scripts/require.js" data-main="goods.js" type="text/javascript" charset="utf-8"></script>
+	<!-- //导航栏列表 -->
+	<script id="nav-top-list" type="text/html">
+		<% for(let i = 0;i < 8 ;i++){ %>
+				<a class="black _hover" href="#"><%=data[i]%></a>
+		<%}%>
+			<a class="black fl" href="#">APP下载</a>
+	</script>
+	<!-- 划入显示的商品列表 -->
+	<script id="product_show" type="text/html">
+		<% for(let i = 0;i < data.length ;i++){ %>
+			
+			<a class="_out" href="#">
+				<img src=<%=data[i].img%> alt=""/>
+				<span><%=data[i].name%></span>
+				<em><%=data[i].price%></em>
+			</a>
+		<%}%>
+	</script>
+	
+</html>
